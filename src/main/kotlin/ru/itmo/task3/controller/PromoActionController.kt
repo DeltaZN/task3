@@ -5,17 +5,8 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import ru.itmo.task3.entity.PromoAction
 import ru.itmo.task3.service.PromoActionService
-
-data class PromoReqDTO(
-    val name: String,
-    val description: String?,
-)
-
-data class PromoRespDTO(
-    val id: Long,
-    val name: String,
-    val description: String?,
-)
+import ru.itmo.task3.service.PromoReqDTO
+import ru.itmo.task3.service.PromoRespDTO
 
 @CrossOrigin(origins = ["*"], maxAge = 3600)
 @RestController
@@ -63,10 +54,4 @@ class PromoActionController(
             ResponseEntity.notFound().build()
         }
     }
-
-//    @PostMapping("/{id}/raffle")
-//    fun raffle(@PathVariable id: Long): ResponseEntity<Long> {
-//        println(body)
-//        return ResponseEntity.ok(1)
-//    }
 }

@@ -2,11 +2,8 @@ package ru.itmo.task3.controller
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import ru.itmo.task3.service.PrizeDTO
 import ru.itmo.task3.service.PrizeService
-
-data class PrizeDTO(
-    val description: String,
-)
 
 @CrossOrigin(origins = ["*"], maxAge = 3600)
 @RestController

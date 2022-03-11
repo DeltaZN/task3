@@ -2,11 +2,8 @@ package ru.itmo.task3.controller
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import ru.itmo.task3.service.ParticipantDTO
 import ru.itmo.task3.service.ParticipantService
-
-data class ParticipantDTO(
-    val name: String,
-)
 
 @CrossOrigin(origins = ["*"], maxAge = 3600)
 @RestController

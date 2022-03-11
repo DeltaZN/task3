@@ -19,14 +19,14 @@ class SpringFoxConfig {
     fun api(): Docket {
         return Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("ru.itmo.task2.controller"))
+                .apis(RequestHandlerSelectors.basePackage("ru.itmo.task3.controller"))
                 .paths(PathSelectors.any())
                 .build()
             .apiInfo(apiInfo())
     }
 
     private fun apiInfo() = ApiInfo(
-            "Task 2 Backend",
+            "Task 3 Backend",
             "Backend description of API.",
             API_VERSION,
             "Terms of service",

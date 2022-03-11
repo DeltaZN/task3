@@ -1,11 +1,20 @@
 package ru.itmo.task3.service
 
 import org.springframework.stereotype.Service
-import ru.itmo.task3.controller.PromoReqDTO
-import ru.itmo.task3.controller.PromoRespDTO
 import ru.itmo.task3.entity.PromoAction
 import ru.itmo.task3.repository.PromoActionRepository
 import java.util.*
+
+data class PromoReqDTO(
+    val name: String,
+    val description: String?,
+)
+
+data class PromoRespDTO(
+    val id: Long,
+    val name: String,
+    val description: String?,
+)
 
 @Service
 class PromoActionService(

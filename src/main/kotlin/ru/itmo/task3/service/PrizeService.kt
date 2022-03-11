@@ -1,12 +1,13 @@
 package ru.itmo.task3.service
 
 import org.springframework.stereotype.Service
-import ru.itmo.task3.controller.ParticipantDTO
-import ru.itmo.task3.controller.PrizeDTO
-import ru.itmo.task3.entity.Participant
 import ru.itmo.task3.entity.Prize
 import ru.itmo.task3.repository.PromoActionRepository
 import java.util.*
+
+data class PrizeDTO(
+    val description: String,
+)
 
 @Service
 class PrizeService(
