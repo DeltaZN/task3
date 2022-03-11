@@ -20,7 +20,7 @@ class RaffleController(
         val (status, raffleResults) = raffleService.performRaffle(id)
         return when (status) {
             RaffleStatus.SUCCESS -> ResponseEntity.ok(raffleResults)
-            RaffleStatus.ACTION_NOT_FOUND -> throw EntityNotFoundException("Promo action wasn't found.")
+            RaffleStatus.ACTION_NOT_FOUND -> throw EntityNotFoundException("Promo action with $id wasn't found.")
             RaffleStatus.CONFLICT_PARTICIPANTS_PRIZES -> throw RaffleException("Number of prizes doesn't match participants number.")
         }
     }

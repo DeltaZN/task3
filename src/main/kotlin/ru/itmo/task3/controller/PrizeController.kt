@@ -3,7 +3,9 @@ package ru.itmo.task3.controller
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import ru.itmo.task3.service.PrizeDTO
+import ru.itmo.task3.service.PrizeRemoveStatus
 import ru.itmo.task3.service.PrizeService
+import javax.persistence.EntityNotFoundException
 
 @CrossOrigin(origins = ["*"], maxAge = 3600)
 @RestController
@@ -17,17 +19,16 @@ class PrizeController(
         return if (result.isPresent) {
             ResponseEntity.ok(result.get())
         } else {
-            ResponseEntity.notFound().build()
+            throw EntityNotFoundException("Promo action with $id wasn't found.")
         }
     }
 
     @DeleteMapping("/{id}/prize/{prizeId}")
     fun deleteParticipant(@PathVariable id: Long, @PathVariable prizeId: Long): ResponseEntity<Unit> {
-        val status = prizeService.removePrize(id, prizeId)
-        return if (status) {
-            ResponseEntity.ok().build()
-        } else {
-            ResponseEntity.notFound().build()
+        return when (prizeService.removePrize(id, prizeId)) {
+            PrizeRemoveStatus.SUCCESS -> ResponseEntity.ok().build()
+            PrizeRemoveStatus.PRIZE_NOT_FOUND -> throw EntityNotFoundException("Prize with $prizeId wasn't found.")
+            PrizeRemoveStatus.PROMO_NOT_FOUND -> throw EntityNotFoundException("Promo action with $id wasn't found.")
         }
     }
 }

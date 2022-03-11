@@ -7,6 +7,7 @@ import ru.itmo.task3.entity.PromoAction
 import ru.itmo.task3.service.PromoActionService
 import ru.itmo.task3.service.PromoReqDTO
 import ru.itmo.task3.service.PromoRespDTO
+import javax.persistence.EntityNotFoundException
 
 @CrossOrigin(origins = ["*"], maxAge = 3600)
 @RestController
@@ -31,7 +32,7 @@ class PromoActionController(
         return if (result.isPresent) {
             ResponseEntity.ok(result.get())
         } else {
-            ResponseEntity.notFound().build()
+            throw EntityNotFoundException("Promo action with $id wasn't found.")
         }
     }
 
@@ -41,7 +42,7 @@ class PromoActionController(
         return if (status) {
             ResponseEntity.ok().build()
         } else {
-            ResponseEntity.notFound().build()
+            throw EntityNotFoundException("Promo action with $id wasn't found.")
         }
     }
 
@@ -51,7 +52,7 @@ class PromoActionController(
         return if (status) {
             ResponseEntity.ok().build()
         } else {
-            ResponseEntity.notFound().build()
+            throw EntityNotFoundException("Promo action with $id wasn't found.")
         }
     }
 }

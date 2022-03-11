@@ -9,6 +9,12 @@ data class PrizeDTO(
     val description: String,
 )
 
+enum class PrizeRemoveStatus {
+    SUCCESS,
+    PROMO_NOT_FOUND,
+    PRIZE_NOT_FOUND,
+}
+
 @Service
 class PrizeService(
     val promoActionRepository: PromoActionRepository
@@ -26,15 +32,15 @@ class PrizeService(
         }
     }
 
-    fun removePrize(promoId: Long, prizeId: Long): Boolean {
+    fun removePrize(promoId: Long, prizeId: Long): PrizeRemoveStatus {
         val maybeAction = promoActionRepository.findById(promoId)
         return if (maybeAction.isPresent) {
             val action = maybeAction.get()
             val removed = action.prizes.removeIf { p -> p.id == prizeId }
             promoActionRepository.save(action)
-            removed
+            if (removed) PrizeRemoveStatus.SUCCESS else PrizeRemoveStatus.PRIZE_NOT_FOUND
         } else {
-            false
+            PrizeRemoveStatus.PROMO_NOT_FOUND
         }
     }
 }
