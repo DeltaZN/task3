@@ -1,10 +1,10 @@
-package ru.itmo.task2
+package ru.itmo.task3
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class Task2ApplicationTests {
+class Task3ApplicationTests {
 
     @Test
     fun contextLoads() {

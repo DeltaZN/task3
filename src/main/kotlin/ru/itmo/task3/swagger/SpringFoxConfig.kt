@@ -1,4 +1,4 @@
-package ru.itmo.task2.swagger
+package ru.itmo.task3.swagger
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

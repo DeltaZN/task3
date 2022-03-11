@@ -1,11 +1,11 @@
-package ru.itmo.task2
+package ru.itmo.task3
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class Task2Application
+class Task3Application
 
 fun main(args: Array<String>) {
-    runApplication<Task2Application>(*args)
+    runApplication<Task3Application>(*args)
 }
