@@ -63,29 +63,7 @@ class PromoActionController(
             ResponseEntity.notFound().build()
         }
     }
-//
-//    @PostMapping("/{id}/participant")
-//    fun addParticipant(@PathVariable id: Long, @RequestBody body: PromoReqDTO): ResponseEntity<Long> {
-//        println(body)
-//        return ResponseEntity.ok(1)
-//    }
-//
-//    @DeleteMapping("/{id}/participant/{participantId}")
-//    fun deleteParticipant(@PathVariable id: Long, @PathVariable participantId: Long): ResponseEntity<PromoAction> {
-//        return ResponseEntity.ok(emptyList())
-//    }
-//
-//    @PostMapping("/{id}/prize")
-//    fun addPrize(@PathVariable id: Long, @RequestBody body: PromoReqDTO): ResponseEntity<Long> {
-//        println(body)
-//        return ResponseEntity.ok(1)
-//    }
-//
-//    @DeleteMapping("/{id}/prize/{prizeId}")
-//    fun deletePrize(@PathVariable id: Long, @PathVariable prizeId: Long): ResponseEntity<PromoAction> {
-//        return ResponseEntity.ok(emptyList())
-//    }
-//
+
 //    @PostMapping("/{id}/raffle")
 //    fun raffle(@PathVariable id: Long): ResponseEntity<Long> {
 //        println(body)

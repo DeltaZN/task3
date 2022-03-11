@@ -10,5 +10,5 @@ class Participant(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0,
-    var description: String = "",
+    var name: String = "",
 )
